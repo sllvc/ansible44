@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+  - name: install git
+    apt:
+      name: git
+      sate: present
+  - name: install tree
+    apt:
+      name: tree
+      state: present
+
+    

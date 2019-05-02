@@ -1,0 +1,16 @@
+---
+# Key: values
+# space space notation 
+
+StudentDetails: 
+- name: sai
+  phno: 8989898988
+  address: kphp
+
+- name: haresh
+  phno: 797979797
+  address: kphb
+  
+- name: haresh
+  phno: 797979797
+  address: kphb
