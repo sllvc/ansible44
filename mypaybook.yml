@@ -1,10 +1,11 @@
 ---
 - hosts: all
+  become: yes
   tasks:
   - name: install git
     apt:
       name: git
-      sate: present
+      state: present
   - name: install tree
     apt:
       name: tree
