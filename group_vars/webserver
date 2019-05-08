@@ -1,3 +1,6 @@
 key : values
 webserverforubuntu : apache2
 webserverforredhat : httpd
+
+javaonUbuntu : openjdk-6-jre
+javaonRedhat : java-1.6.0-openjdk
