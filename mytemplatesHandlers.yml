@@ -19,5 +19,9 @@
     service:
       name: httpd
       state: started
+  - name: stopwebserver
+    service:
+      name: httpd
+      state: stoped
 
 
