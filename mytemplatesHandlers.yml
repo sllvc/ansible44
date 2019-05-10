@@ -7,18 +7,17 @@
     yum:
       name: httpd
       state: present
-  - name: start webserver
-    service:
-      name: httpd
-      state: started
-      
+    notify: startwebserver
   - name: copy index file into webserver
     template:
       src: index.j2
       dest: /var/www/html/index.html
+    notify: startwebserver
 
-  - name: start webserver
+  handlers:
+  - name: startwebserver
     service:
       name: httpd
-      state: started 
+      state: started
+
 
