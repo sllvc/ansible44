@@ -1,2 +1,32 @@
 ---
 # tasks file for mytomrole
+- name: install tomcat
+  yum:
+    name: tomcat
+    state: present
+
+- name: copy the config file into tomcat
+  template:
+    src: tamplates/tomconfig.j2
+    dest: /usr/share/tomcat/conf/tomcat.conf
+
+- name: install Admin Packages
+  yum:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - tomcat-webapps
+    - tomcat-admin-webapps
+
+- name: copi tom user file into tomcat
+  template:
+    src: tamplates/tomuser.j2
+    dest: /usr/share/tomcat/conf/tomcat-users.xml
+  notify: starttomcat
+
+- name: Download jenkins war file and force basic auth
+  get_url:
+    url: http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+    dest: /usr/share/tomcat/webapps/
+    force_basic_auth: yes
+  notify: restarttomcat
